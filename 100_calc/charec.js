@@ -182,11 +182,14 @@ Charlec.prototype = {
     //問題作成
     mekeQuest: function(){
         //入力内容から問題を生成
+/*
         var set_quest = prompt("もんだいの　すうじを　いれてください\n「OK」をおすと　はじまります","1-10");
         while(set_quest === null){
         	set_quest = prompt("！「キャンセル」は　ダメです！\nもんだいの　すうじを　いれてください\n「OK」をおすと　はじまります","1-10");
         }
         set_quest = set_quest.split("-");
+*/
+		set_quest[0]=1; set_quest[1]=10;
     	this.Xarry = rand_aryy(set_quest[0],set_quest[1],this.QUESTION);
     	this.Yarry = rand_aryy(set_quest[0],set_quest[1],this.QUESTION);
     	this.first = this.Yarry[Math.floor(this.questNo/this.QUESTION)];
