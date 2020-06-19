@@ -1,20 +1,97 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="no-js" lang="ja">
 <head>
-	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>top menu</title>
-	<link rel="stylesheet" href="./main.css">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>いっぱい　たしざん</title>
+  <script src='./charec.js'></script>
+  <script>
+    window.addEventListener('load', function(){
+      var $field = document.getElementById('field');
+      var $canvas1 = document.getElementById('board1');
+      var $canvas2 = document.getElementById('board2');
+      var $output = document.getElementById('output');
+      var $reset = document.getElementById('reset');
+      var $input = document.getElementById('input');
+      var charlec = new Charlec($field, $output, $input, $reset);
+      $canvas1.width = (document.getElementById('output').clientWidth-10)/2;
+      $canvas1.height = 300;
+      $canvas2.width = $canvas1.width
+      $canvas2.height = 300;
+    });
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    h1,h2,h3 {
+      font-size: 1.5em;
+      font-weight: normal;
+    }
+    canvas {
+      display: inline-block;
+      border: 2px solid #777;
+      margin-top: 10px;
+      margin-right: 0;
+    }
+    #output {
+      height: 46px;
+      border: 2px solid #777;
+      display: block;
+      vertical-align: top;
+      text-align: center;
+      font-size: 36px;
+      padding: 10px;
+    }
+    #field {
+      width: 100%;
+      heigth: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+    button {
+      font-size: 14.em;
+      padding: 10px 30px;
+      display: inline-block;
+      text-align: center;
+    }
+    #reset {
+      float: left;
+    }
+    #input {
+      float: right;
+    }
+    #daialog {
+	    width: 250px;
+	    margin: auto;
+	    margin-top: 40vh;
+	    padding: 30px 20px;
+	    display: none;
+	    text-align: center;
+	    border: 1px solid #aaa;
+	    box-shadow: 2px 2px 4px #888;
+    }
+  </style>
 </head>
-<body>
-	<div>
-		<a href="name_create/index.html">ランダム名前生成</a>
+<body lang='en'>
+
+	<h1>たしざん１００</h1>
+
+	<p id='quest'>もんだい：</p>
+	<div id='output'></div>
+	<div id="field">
+	  <canvas id='board1'></canvas>
+	  <canvas id='board2'></canvas>
 	</div>
-	
-	<div>==========</div>
-	
 	<div>
-		<a href="100_calc/index.html">タッチでひゃくますけいさん</a>
+		<button id='reset'>けす</button>
+		<button id='input'>こたえ</button>
 	</div>
+	<div id="daialog">
+		<p>リザルト
+		<button id='reset'>はじめから</button>
+		<button id='input'>まちがいをなおす</button>
+	</div>
+
 </body>
 </html>
