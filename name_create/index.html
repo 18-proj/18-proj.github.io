@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>name creater</title>
+	<link rel="stylesheet" href="./main.css">
+</head>
+<body>
+	<div id="name_area">---</div>
+	
+	<div id="create_btn">
+		<input type="button" name="crt_nm" value="名前生成" onClick=name_create()>
+	</div>
+	
+	<div id="txt_val">
+		<input type="number" id="min_val" value="2" min="2" max="10">
+		<div>～</div>
+		<input type="number" id="max_val" value="5" min="2" max="10">
+		<div>　文字まで</div>
+	</div>
+	
+	<div id="option">
+		<div id="list">設定</div>
+		<div><input type="checkbox" id="nbs" value="1">長音符の出現率アップ</div>
+		<div><input type="checkbox" id="xtu" value="2">「ッ」の出現率アップ</div>
+		<div><input type="checkbox" id="sho" value="3">捨て仮名出現率ダウン</div>
+	</div>
+	<script src='./main.js'></script>
+</body>
+</html>
