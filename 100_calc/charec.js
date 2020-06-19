@@ -166,7 +166,7 @@ Charlec.prototype = {
               event.preventDefault();
             },false);
 	        this.$field.addEventListener('touchstart', this.onTouchstart.bind(this));
-	        this.$field.addEventListener('touchmove', this.onTouchmove.bind(this));
+	        this.$field.addEventListener('touchmove', this.onTouchmove.bind(this), {passive: false});
 	        this.$field.addEventListener('touchend', this.onTouchend.bind(this));
 	    }else{
 	        this.$field.addEventListener('mouseup', this.onMouseUp.bind(this));
