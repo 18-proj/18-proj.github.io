@@ -164,7 +164,7 @@ Charlec.prototype = {
         if ("ontouchstart" in window) {
             window.addEventListener('touchmove', function(event) {
               event.preventDefault();
-            },false);
+            }, { passive: false});
 	        this.$field.addEventListener('touchstart', this.onTouchstart.bind(this));
 	        this.$field.addEventListener('touchmove', this.onTouchmove.bind(this));
 	        this.$field.addEventListener('touchend', this.onTouchend.bind(this));
