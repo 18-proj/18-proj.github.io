@@ -1,4 +1,5 @@
 //キャッシュ更新の確認
+/*
 function CacheChk(){
 	window.applicationCache.update(); 
 	if(window.applicationCache.status ==window.applicationCache.UPDATEREADY){
@@ -6,6 +7,7 @@ function CacheChk(){
 		window.location.reload();
 	}
 }
+*/
 
 //配列の合計
 function sum(arr) {
