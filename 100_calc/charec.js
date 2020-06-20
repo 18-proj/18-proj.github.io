@@ -189,7 +189,7 @@ Charlec.prototype = {
         }
         set_quest = set_quest.split("-");
 */
-		set_quest[0]=1; set_quest[1]=10;
+		var set_quest = [1,10];
     	this.Xarry = rand_aryy(set_quest[0],set_quest[1],this.QUESTION);
     	this.Yarry = rand_aryy(set_quest[0],set_quest[1],this.QUESTION);
     	this.first = this.Yarry[Math.floor(this.questNo/this.QUESTION)];
