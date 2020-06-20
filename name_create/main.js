@@ -35,6 +35,8 @@ function name_create(){
 	let rnd_name = "";
 	let rnd_txt = "";
 	let rnd_code = 0;
+	let nbs_chk = 0.9;
+	let xtu_chk = 0.9;
 	
 	//文字数を決める
 	let min_cnt = Number( document.getElementById("min_val").value );
@@ -49,8 +51,16 @@ function name_create(){
 			//----------------
 			//オプション
 			//----------------
-			if(document.getElementById("nbs").checked && Math.random() > 0.5 ){ rnd_code = 12540; }
-			if(document.getElementById("xtu").checked && Math.random() > 0.4 ){ rnd_code = 12483; }
+			if(document.getElementById("nbs").checked && Math.random() > nbs_chk ){
+				rnd_code = 12540;
+				nbs_chk = 1.5;
+			}else if(document.getElementById("xtu").checked && Math.random() > xtu_chk ){
+				rnd_code = 12483;
+				xtu_chk = 1.0;
+			}else{
+				nbs_chk = nbs_chk - ( 0.5 / txt_cnt);
+				xtu_chk = xtu_chk - ( 0.5 / txt_cnt);
+			}
 
 			//----------------
 			//文字構成チェック
@@ -59,7 +69,7 @@ function name_create(){
 			
 			//使用禁止文字or小書き系の場合の対処
 			if( KANA_NO.includes(rnd_code) || KANA_S.includes(rnd_code) ){
-				if(document.getElementById("xtu").checked && Math.random() > 0.5 ){ continue; }
+				if(document.getElementById("xtu").checked && Math.random() > (0.2+(0.6/txt_cnt)) ){ continue; }
 				rnd_txt = KANA_SHO[ Math.floor( Math.random() * 47 ) ];
 				//i++;
 				break;
@@ -85,4 +95,11 @@ function name_create(){
 		rnd_name = rnd_name + rnd_txt;
 	}
 	document.getElementById("name_area").innerHTML = rnd_name;
+	
+	var ssu = new SpeechSynthesisUtterance();
+	ssu.text  = rnd_name;
+	ssu.lang  = 'ja-jp';
+	ssu.rate  = 0.3;
+	ssu.pitch = 1.5;
+	speechSynthesis.speak(ssu);
 }
